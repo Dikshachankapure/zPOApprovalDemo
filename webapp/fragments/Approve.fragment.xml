@@ -1,0 +1,124 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog noDataText="No Products Found"   contentWidth="700px" horizontalScrolling="false">
+	<!--	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormChange354"
+			minWidth="1024"
+			maxContainerCols="2"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Address"
+			labelSpanL="3"
+			labelSpanM="3"
+			emptySpanL="4"
+			emptySpanM="4"
+			columnsL="1"
+			columnsM="1"
+			class="editableForm">
+			<f:content>
+				<Label text="Next Approver" />
+				<Input value="{SupplierName}" />
+				<Label text="Approval Comments" />
+				<Input value="{Street}">
+				</Input>
+					<Label text="Approval History" />
+				
+													<Table id="tblApprovalHistory" items="{/History}" inset="false" growing="true" growingThreshold="10"
+										growingScrollToLoad="true" width="auto">
+										<columns>
+											<Column >
+												<Text text="Date"/>
+											</Column>
+											<Column >
+												<Text text="Time"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Initiator"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Query"/>
+											</Column>
+										</columns>
+										<items >
+											<ColumnListItem  press="onEdit">
+												<cells>
+													<Text text="{Date}"/>
+													<Text text="{Time}"/>
+													<Text text="{Intiator}"/>
+													<Text text="{Query}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+
+			</f:content>
+		</f:SimpleForm>
+	</VBox>-->
+		<VBox class="sapUiSmallMargin" >
+			<f:Form id="FormToolbarApproveHistory"
+			editable="true"
+			ariaLabelledBy="Title1"
+			>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+					emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Next Approver">
+								<f:fields>
+									<Input type="Text" id="Approverid" valueHelpRequest="_handleValueHelpUser" suggestionItems="{/ToUserSet}" textFormatMode="Key"
+								width="90%"		showSuggestion="true" showValueHelp="true" >
+										<suggestionItems>
+											<core:Item text="{ToUser}" key="{ToUser}"/>
+										</suggestionItems>
+									</Input>
+									
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Approval Comments">
+								<f:fields>
+									<TextArea id="idComments"  width="90%"/>
+								</f:fields>
+							</f:FormElement>
+							<!--<f:FormElement label="Approval History">
+								<f:fields>
+									<Table id="tblApprovalHistory" items="{/History}" inset="false" growing="true" growingThreshold="10"
+										growingScrollToLoad="true" width="auto">
+										<columns>
+											<Column >
+												<Text text="Date"/>
+											</Column>
+											
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Initiator"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Status"/>
+											</Column>
+										</columns>
+										<items >
+											<ColumnListItem  press="onEdit">
+												<cells>
+													<Text text="{Date}"/>
+												
+													<Text text="{Initiator}"/>
+													<Text text="{Status}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:fields>
+							</f:FormElement>-->
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+		
+		<buttons>
+			<Button text="Approve" icon="sap-icon://accept" type="Emphasized" press="OnCancelApprove"></Button>
+			<Button text="Cancel" type="Reject" icon="sap-icon://decline" press="OnCancelApprove"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

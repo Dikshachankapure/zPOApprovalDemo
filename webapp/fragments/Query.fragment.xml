@@ -1,0 +1,69 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="idDialog" noDataText="No Products Found"  contentWidth="700px" horizontalScrolling="false">
+	
+		<VBox class="sapUiSmallMargin">
+			<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Query">
+								<f:fields>
+									<TextArea id="idQuery" width="90%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="To User">
+								<f:fields>
+									<Input type="Text" id="Userid" valueHelpRequest="_handleValueHelpUser" suggestionItems="{/ToUserSet}" textFormatMode="Key" width="90%"
+										showSuggestion="true" showValueHelp="true">
+										<suggestionItems>
+											<core:Item text="{ToUser}" key="{ToUser}"/>
+										</suggestionItems>
+									</Input>
+								</f:fields>
+							</f:FormElement>
+							<!--	<f:FormElement label="Query History">
+								<f:fields>
+									<Table id="tblQueryHistory" items="{/History}" inset="false" growing="true" growingThreshold="10"
+										growingScrollToLoad="true" width="auto">
+										<columns>
+											<Column >
+												<Text text="Date"/>
+											</Column>
+											<Column >
+												<Text text="Time"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Initiator"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Query"/>
+											</Column>
+										</columns>
+										<items >
+											<ColumnListItem  press="onEdit">
+												<cells>
+													<Text text="{Date}"/>
+													<Text text="{Time}"/>
+													<Text text="{Intiator}"/>
+													<Text text="{Query}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:fields>
+							</f:FormElement>-->
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+		<buttons>
+			<Button text="Submit Query" icon="sap-icon://accept" type="Emphasized" press="OnCancelQuery"></Button>
+			<Button text="Cancel" type="Reject" icon="sap-icon://decline" press="OnCancelQuery"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

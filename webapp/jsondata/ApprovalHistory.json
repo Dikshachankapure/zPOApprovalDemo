@@ -1,0 +1,30 @@
+{
+	"RejectHistory" : [
+	 {
+			"Date" : "6/8/2020",
+			"Intiator" : "Mehul",
+				"Status": "Open"
+		}, 
+		 {
+			"Date" : "6/7/2020",
+			"Time" : "16:45:45",
+			"Intiator" : "Surya",
+			"Query" : "Where is Mehul?",
+				"Status": "Open"
+		}, 
+		 {
+			"Date" : "6/6/2020",
+			"Time" : "15:45:50",
+			"Intiator" : "Manish",
+			"Query" : "I am fine, how are you?",
+				"Status": "Closed"
+		},
+		{
+			"Date" : "6/5/2020",
+			"Time" : "12:51:23",
+			"Intiator" : "Surya",
+			"Query" : "How are you?",
+				"Status": "Closed"
+		}
+	]
+}

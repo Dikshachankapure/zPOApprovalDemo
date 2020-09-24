@@ -1,0 +1,48 @@
+/* Enter your custom styles here */
+
+.sapUiForm .sapMText {
+    overflow: hidden;
+    font-size: .875rem;
+    width: 573px;
+}
+
+.sapMSplitContainerDetail .sapMITB.sapUiResponsiveContentPadding > .sapMITBContainerContent > .sapMITBContent {
+    padding: 1rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.sapMOH .sapMOHAttr .sapMObjectAttributeTitle,
+.sapMOH .sapMOHAttr .sapMObjectAttributeText,
+.sapMOH .sapMOHAttr .sapMObjectAttributeColon {
+    font-size: 15px !important;
+}
+
+span#__xmlview1--objPrice-title {
+    font-size: 15px;
+}
+
+.sapUiFormEdit .sapMText {
+    width: 234px;
+    display: block;
+    min-height: 3rem;
+    line-height: 1.375rem;
+    padding-top: 0.8125rem;
+    padding-bottom: 0.8125rem;
+}
+
+.sapUiRespGridBreak.sapUiRespGridSpanXL4.sapUiRespGridSpanL4.sapUiRespGridSpanM4.sapUiRespGridSpanS12.sapUiFormElementLbl {
+    width: 138px;
+}
+
+div#__container1--Grid {
+    width: 710px;
+}
+
+div#__container2--Grid {
+    width: 501px;
+}
+
+div#__xmlview1--SimpleFormChange354wide--Form--Grid {
+    padding-left: 67px;
+}

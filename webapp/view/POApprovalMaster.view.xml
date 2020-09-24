@@ -1,0 +1,38 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="POApproval.ZPOApproval.controller.POApprovalMaster" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="My Purchase Orders">
+				<subHeader>
+					<Toolbar>
+						<SearchField id="idSearchSo" search="onSearch"></SearchField>
+						<Button icon="sap-icon://filter" tooltip="{i18n>refreshButtonTooltip}" press="handleOpenDialog" type="Emphasized"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</subHeader>
+				<content>
+					<List items="{/PurchaseOrder}" id="listPO" >
+						<items>
+							<ObjectListItem title="{PurchaseOrderNo}" type="Active" press="onListItemPress"
+								number="{ parts:[{path:'Amount'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" numberUnit="{CurrencyCode}">
+								<firstStatus>
+									<ObjectStatus text="{Status}" state="{ path: 'Status', formatter: 'POApproval.ZPOApproval.utils.Formatter.status' }"/>
+								</firstStatus>
+								<secondStatus>
+									<ObjectStatus text="{DocumentType}"/>
+								</secondStatus>
+								<attributes>
+									<ObjectAttribute text="{Plant} "/>
+									<ObjectAttribute text="{Vendor} "/>
+									<ObjectAttribute text="{PODate} "/>
+								</attributes>
+							</ObjectListItem>
+							<!--	<StandardListItem title="{PurchaseOrderNo}" description="{PODate}"  iconDensityAware="true" iconInset="true"
+							info="{POInitiator}" icon="{src}" infoState="Success"	type="Active" press="onListItemPress"/>-->
+						</items>
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

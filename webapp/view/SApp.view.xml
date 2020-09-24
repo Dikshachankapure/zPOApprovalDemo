@@ -1,0 +1,4 @@
+<mvc:View controllerName="POApproval.ZPOApproval.controller.SApp" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<SplitApp id="idApp" >
+	</SplitApp>
+</mvc:View>

@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="handleConfirm">
+		<filterItems  >
+			<ViewSettingsFilterItem text="Plant" key="Plant" multiSelect="false" items="{/PurchaseOrder}">
+				<items>
+					<ViewSettingsItem text="{Plant}" key="{Plant}" id="fltPlant"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Document Type" key="DocumentType" multiSelect="false"  items="{/PurchaseOrder}">
+				<items>
+					<ViewSettingsItem text="{DocumentType}"  key="{DocumentType}" id="fltDocType"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Status" key="Status" multiSelect="false"  items="{/PurchaseOrder}">
+				<items>
+					<ViewSettingsItem text="{Status}"  key="{Status}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Vendor" key="Vendor" multiSelect="false"  items="{/PurchaseOrder}">
+				<items>
+					<ViewSettingsItem text="{Vendor}" key="{Vendor}"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

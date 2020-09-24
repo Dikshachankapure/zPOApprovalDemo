@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog noDataText="No Products Found"   contentWidth="700px"  horizontalScrolling="false">
+		<VBox class="sapUiSmallMargin" >
+			<f:Form id="FormToolbarRejectionHistory"
+			editable="true"
+			ariaLabelledBy="Title1"
+			>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+					emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Rejection Comments">
+								<f:fields>
+									<TextArea id="idRejectionComments" width="100%" />
+								</f:fields>
+							</f:FormElement>
+						<!--	<f:FormElement label="Approval History">
+								<f:fields>
+									<Table id="tblRejectionHistory" items="{/History}" inset="false" growing="true" growingThreshold="10"
+										growingScrollToLoad="true" width="auto">
+										<columns>
+											<Column >
+												<Text text="Date"/>
+											</Column>
+											
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Initiator"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="Status"/>
+											</Column>
+										</columns>
+										<items >
+											<ColumnListItem  press="onEdit">
+												<cells>
+													<Text text="{Date}"/>
+												
+													<Text text="{Initiator}"/>
+													<Text text="{Status}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:fields>
+							</f:FormElement>-->
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+		
+		<buttons>
+			<Button text="Submit Rejection" icon="sap-icon://accept" type="Emphasized" press="OnCancelReject"></Button>
+			<Button text="Cancel" type="Reject" icon="sap-icon://decline" press="OnCancelReject"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

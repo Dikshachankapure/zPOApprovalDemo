@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "POApproval.ZPOApproval.ZPOApproval",
+        "description": "Purchase Order Approval",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#ZPOApproval-Display",
+        "navigationComponentName": "POApproval.ZPOApproval",
+        "intentSemanticObject": "ZPOApproval",
+        "intentAction": "Display",
+        "html5ApplicationName": "zpoapproval",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "1c3472c7-02e9-4353-a0f5-677ebd1e92a7-1592915062993"
+        ],
+        "contentPackages": [
+            "29b7012b-620e-4a02-93e8-fb200e3d2060-1592914972357"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Purchase Order Approvals",
+        "subtitle": "PO Approval",
+        "searchKeywords": "Purchase Order Approvals,PO Approval",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

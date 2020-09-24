@@ -1,0 +1,237 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="POApproval.ZPOApproval.controller.POApprovalDetail" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:upload="sap.m.upload">
+	<App>
+		<pages>
+			<Page title="Volvo Eicher Commercial Vehicles Purchase Order Approval" navButtonPress="handleNavButtonPress"
+				showNavButton="{device>/system/phone}">
+				<content>
+					<ObjectHeader >
+						<statuses>
+							<ObjectStatus id="objPrice"/>
+						</statuses>
+						<ObjectAttribute id="objcmp" class="objectattr"/>
+					</ObjectHeader>
+					<!--<ObjectHeader id="objcmp" title="PO Number"/>-->
+					<IconTabBar id="idIconTabBarNoIcons" expanded="true" class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter icon="sap-icon://pdf-attachment" text="Cover Note">
+								<core:HTML id="idFrame"/>
+							</IconTabFilter>
+							<IconTabFilter text="Attachments" icon="sap-icon://attachment">
+								<UploadCollection id="UploadCollection" maximumFilenameLength="55" maximumFileSize="10" multiple="true" showSeparators="All"
+									change="onChange" fileDeleted="onFileDeleted" filenameLengthExceed="onFilenameLengthExceed" fileRenamed="onFileRenamed"
+									fileSizeExceed="onFileSizeExceed" selectionChange="onSelectionChange" typeMissmatch="onTypeMissmatch" uploadComplete="onUploadComplete"
+									beforeUploadStarts="onBeforeUploadStarts" uploadTerminated="onUploadTerminated"
+									items="{path : 'oModelAttachment>/items', templateShareable : 'true'}" numberOfAttachmentsText="Uploaded (8)" mode="SingleSelectMaster">
+									<toolbar>
+										<OverflowToolbar id="myId">
+											<Title id="attachmentTitle"/>
+											<ToolbarSpacer/>
+											<Button id="deleteSelectedButton" text="Delete" press="onDeleteSelectedItems" enabled="false" visible="false" type="Transparent"></Button>
+											<ToggleButton id="selectAllButton" text="Select all" press="onSelectAllPress" enabled="false" visible="false" type="Transparent"></ToggleButton>
+											<UploadCollectionToolbarPlaceholder></UploadCollectionToolbarPlaceholder>
+										</OverflowToolbar>
+									</toolbar>
+									<items>
+										<UploadCollectionItem documentId="{oModelAttachment>documentId}" fileName="{oModelAttachment>fileName}"
+											mimeType="{oModelAttachment>mimeType}" thumbnailUrl="{oModelAttachment>thumbnailUrl}" url="{oModelAttachment>url}"
+											enableEdit="{oModelAttachment>enableEdit}" enableDelete="{oModelAttachment>enableDelete}" visibleDelete="{oModelAttachment>visibleDelete}"
+											visibleEdit="{oModelAttachment>visibleEdit}" selected="{oModelAttachment>selected}"></UploadCollectionItem>
+									</items>
+								</UploadCollection>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://history" text="Query History">
+								<Table id="tblQueryHistory" items="{/History}" inset="false" growing="true" growingThreshold="10" growingScrollToLoad="true" width="auto">
+									<columns>
+										<Column >
+											<Text text="Query Id"/>
+										</Column>
+										<Column >
+											<Text text="From"/>
+										</Column>
+										<Column >
+											<Text text="To"/>
+										</Column>
+										<Column >
+											<Text text="Date"/>
+										</Column>
+										<Column >
+											<Text text="Time"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="Status"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="Query"/>
+										</Column>
+									</columns>
+									<items >
+										<ColumnListItem press="onEdit">
+											<cells>
+												<Text text="{ID}"/>
+												<Text text="{From}"/>
+												<Text text="{To}"/>
+												<Text text="{Date}"/>
+												<Text text="{Time}"/>
+												<Text text="{Status}"/>
+												<Text text="{Query}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://comment" text="Comments">
+								<Table id="tblComments" items="{/History}" inset="false" growing="true" growingThreshold="10" growingScrollToLoad="true" width="auto">
+									<columns>
+										<Column >
+											<Text text="User"/>
+										</Column>
+										<Column >
+											<Text text="Date"/>
+										</Column>
+										<Column >
+											<Text text="Time"/>
+										</Column>
+										<Column >
+											<Text text="Status"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="Comments"/>
+										</Column>
+									</columns>
+									<items >
+										<ColumnListItem press="onEdit">
+											<cells>
+												<Text text="{User}"/>
+												<Text text="{Date}"/>
+												<Text text="{Time}"/>
+												<Text text="{CommentStatus}"/>
+												<Text text="{Query}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</IconTabFilter>
+							<IconTabFilter text="General" icon="sap-icon://message-information">
+								<!--	<VBox class="sapUiSmallMargin">
+									<f:Form id="FormChange354" editable="true">
+										<f:layout>
+											<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+												emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+										</f:layout>
+										<f:formContainers >
+											<f:FormContainer >
+												<f:formElements>
+														<f:FormElement >
+														<f:fields>
+															<Text id="txtPONO" visible="false"/>
+														</f:fields>
+													</f:FormElement>
+													
+													<f:FormElement label="Purchase Order No" width="100%">
+														<f:fields>
+															<Text id="PurOrdNo"/>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Purchase Order Description">
+														<f:fields>
+															<Text id="PurOrdDesc"/>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Purchase Order Initiator">
+														<f:fields>
+															<Text id="PurOrdInt"/>
+														</f:fields>
+													</f:FormElement>
+														<f:FormElement label="Vendor Name">
+														<f:fields>
+															<Text id="PurOrdVendor"/>
+														</f:fields>
+													</f:FormElement>
+												</f:formElements>
+											</f:FormContainer>
+											<f:FormContainer>
+												<f:formElements>
+													<f:FormElement label="Document Type">
+														<f:fields>
+															<Text id="PurDocType"/>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Purchase Order Date">
+														<f:fields>
+															<Text id="PurOrdDt"/>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement id="otherBox" label="Purchase Order Status" >
+														<f:fields>
+																<Text id="PurOrdSts"/>
+														</f:fields>
+													</f:FormElement>
+												</f:formElements>
+											</f:FormContainer>
+										</f:formContainers>
+									</f:Form>
+								</VBox>-->
+								<l:Grid class="sapUiSmallMarginTop" width="auto" position="Center" containerQuery="true" vSpacing="2" defaultSpan="XL2 L4">
+									<l:content>
+										<VBox >
+											<f:SimpleForm id="SimpleFormChange354wide1" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" width="800px"
+												labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+												columnsL="2" columnsM="2" singleContainerFullSize="false">
+												<f:content>
+														<Text id="txtPONO" visible="false"/>
+													<Label text="Purchase Order No"/>
+													<Text id="PurOrdNo"/>
+													<Label text="Purchase Order Description"/>
+													<Text id="PurOrdDesc"/>
+													<Label text="Purchase Order Initiator"/>
+													<Text id="PurOrdInt"/>
+													<Label text="Vendor Name"/>
+													<Text id="PurOrdVendor" />
+												</f:content>
+											</f:SimpleForm>
+											<layoutData>
+												<l:GridData span="XL2 L4" linebreakL="false" linebreakM="false" linebreakS="false"/>
+											</layoutData>
+										</VBox>
+					
+										<VBox >
+											<f:SimpleForm id="SimpleFormChange354wide" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" width="800px"
+												labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+												columnsL="2" columnsM="2" singleContainerFullSize="false">
+												<f:content>
+													<Label text="Document Type"/>
+													<Text id="PurDocType"/>
+													<Label text="Purchase Order Date"/>
+													<Text id="PurOrdDt"/>
+													<Label text="Purchase Order Status"/>
+													<Text id="PurOrdSts"/>
+													
+												</f:content>
+											</f:SimpleForm>
+										</VBox>
+									</l:content>
+								</l:Grid>
+								
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+					<!--	<Panel expandable="true" expanded="true" headerText="Purchase Order Cover Note" width="auto" class="sapUiResponsiveMargin">
+						<content>
+							<core:HTML id="idFrame"/>
+						</content>
+					</Panel>-->
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Query" icon="sap-icon://sys-help" type="Emphasized" press="handleSelectDialogPress"></Button>
+						<Button text="Approve" id="btnfilter" icon="sap-icon://accept" press="SelectDialogPressApprove" type="Accept"/>
+						<Button text="Reject" id="btnGrp" icon="sap-icon://decline" press="SelectDialogPressReject" type="Reject"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

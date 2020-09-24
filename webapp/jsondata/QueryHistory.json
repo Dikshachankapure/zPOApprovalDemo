@@ -1,0 +1,47 @@
+{
+	"History": [{
+		"ID": "1",
+		"From": "Arjun",
+		"Date": "6/8/2020",
+		"Time": "17:33:45",
+		"To": "Mehul",
+		"Initiator": "Mehul",
+		"Query": "I am  here",
+		"Status": "Open",
+		"User": "Naina",
+		"CommentStatus" : "Approved"
+	}, {
+		"ID": "2",
+		"From": "Kunal",
+		"Date": "6/7/2020",
+		"Time": "16:45:45",
+		"To": "Surya",
+		"Initiator": "Surya",
+		"Query": "Where is Mehul?",
+		"Status": "Open",
+		"User": "Sophie",
+			"CommentStatus" : "Approved"
+	}, {
+		"ID": "3",
+		"From": "Rajat",
+		"Date": "6/6/2020",
+		"Time": "15:45:50",
+		"To": "Manish",
+		"Initiator": "Manish",
+		"Query": "I am fine, how are you?",
+		"Status": "Closed",
+		"User": "Riya",
+			"CommentStatus" : "Reject"
+	}, {
+		"ID": "4",
+		"From": "Sandip",
+		"Date": "6/5/2020",
+		"Time": "12:51:23",
+		"To": "Surya",
+		"Initiator": "Surya",
+		"Query": "How are you?",
+		"Status": "Closed",
+		"User": "Siya",
+			"CommentStatus" : "Reject"
+	}]
+}
